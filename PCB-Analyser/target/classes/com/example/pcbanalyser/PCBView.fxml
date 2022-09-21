@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="AnchorPlane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="754.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pcbanalyser.Controller">
+   <children>
+      <Button fx:id="BrowseFiles" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#SelectImage" onMouseClicked="#SelectImage" text="Browse Images" />
+      <Label fx:id="ImageName" layoutX="116.0" layoutY="14.0" prefHeight="25.0" prefWidth="278.0" text="Label" />
+      <ImageView fx:id="EditedImage" fitHeight="400.0" fitWidth="400.0" layoutX="456.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" />
+      <GridPane layoutX="10.0" layoutY="484.0" prefHeight="116.0" prefWidth="329.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.5" minWidth="10.0" prefWidth="92.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="306.0" minWidth="10.0" prefWidth="237.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Blue Value:" GridPane.rowIndex="2" />
+            <Label text="Brightness Value:" GridPane.rowIndex="3" />
+            <Label text="Hue Value:" GridPane.rowIndex="4" />
+            <Label text="Red Value:" />
+            <Label text="Green Value:" GridPane.rowIndex="1" />
+            <Label text="Saturation Value:" GridPane.rowIndex="5" />
+            <Label fx:id="RedValueDisplay" GridPane.columnIndex="1" />
+            <Label fx:id="GreenValueDisplay" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="BlueValueDisplay" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="BrightnessValueDisplay" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="HueValueDisplay" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="SaturationValueDisplay" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="567.0" layoutY="484.0" prefHeight="191.0" prefWidth="329.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="329.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.5" minWidth="0.0" prefWidth="0.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Noise Suppression and Rectangle creation:" />
+            <Button fx:id="SelectPartButton" mnemonicParsing="false" onAction="#FilterPixels" text="Select Part" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="4" />
+            <Slider fx:id="NoiseSlider" GridPane.rowIndex="1" />
+            <Label fx:id="NoiseLabel" text="0" GridPane.rowIndex="2" />
+            <Label fx:id="DisplayRecCount" text="0" GridPane.rowIndex="5" />
+            <Label text="Number of Parts:" GridPane.rowIndex="4" />
+            <CheckBox fx:id="checkbox" mnemonicParsing="false" text="Rectangle Overlap" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+      <Button fx:id="ExitButton" layoutX="846.0" layoutY="715.0" mnemonicParsing="false" onAction="#Exit" text="Exit" />
+      <Pane fx:id="displayimagepane" layoutX="62.0" layoutY="84.0" prefHeight="400.0" prefWidth="400.0">
+         <children>
+            <ImageView fx:id="DisplayImage" fitHeight="400.0" fitWidth="400.0" onMousePressed="#BlackandWhiteConversion" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Button fx:id="randomColourButton" layoutX="10.0" layoutY="600.0" mnemonicParsing="false" onAction="#randomcolor" text="Random Colour" />
+      <Button layoutX="10.0" layoutY="625.0" mnemonicParsing="false" onAction="#sampleColour" text="Sampled Colour" />
+      <TextField fx:id="partNames" layoutX="10.0" layoutY="650.0" promptText="Part Name" />
+   </children>
+</AnchorPane>
